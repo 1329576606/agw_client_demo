@@ -1,4 +1,5 @@
 import { AbstractWalletProvider } from "@abstract-foundation/agw-react";
+import { Login } from "./components/Login";
 
 const config = {
   testnet: true, // Required
@@ -7,12 +8,12 @@ const config = {
 };
 
 function App() {
-  // login function to prompt the user to sign in with AGW.
   return (
     <div className="App">
       <h1>AGW React Demo</h1>
       <AbstractWalletProvider config={config}>
-        {/* Your application components */}
+        <Login />
+        {/* <WalletStatus /> */}
       </AbstractWalletProvider>
     </div>
   )
