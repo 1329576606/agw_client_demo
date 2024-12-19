@@ -72,10 +72,56 @@ button:hover {
   padding: 0.5rem 1rem;
   background-color: #2D2D2D;
   border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.account-info:hover {
+  background-color: #363636;
 }
 
 .address {
   font-family: 'Roboto Mono', monospace;
   font-size: 0.875rem;
   color: #E2E8F0;
+  position: relative;
+}
+
+.copy-tooltip {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1A1A1A;
+  color: #E2E8F0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.copy-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background-color: #1A1A1A;
+}
+
+.account-info:hover .copy-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.copy-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+  bottom: -30px;
 }
