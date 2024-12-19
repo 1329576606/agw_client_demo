@@ -1,19 +1,22 @@
 import { AbstractWalletProvider } from "@abstract-foundation/agw-react";
 import { Login } from "./components/Login";
+import { Account } from "./components/Account";
 
 const config = {
-  testnet: true, // Required
-  // Optionally, provide your own RPC URL (learn more: https://viem.sh/docs/clients/transports/http.html)
-  // transport: http("https://your.abstract.node.example.com/rpc") // Optional
+  testnet: true,
 };
 
 function App() {
   return (
     <div className="App">
-      <h1>AGW React Demo</h1>
       <AbstractWalletProvider config={config}>
-        <Login />
-        {/* <WalletStatus /> */}
+        <header className="app-header">
+          <h1>AGW React Demo</h1>
+          <div className="header-right">
+            <Account />
+            <Login />
+          </div>
+        </header>
       </AbstractWalletProvider>
     </div>
   )
