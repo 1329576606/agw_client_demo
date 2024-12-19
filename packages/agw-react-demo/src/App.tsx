@@ -1,6 +1,4 @@
 import { AbstractWalletProvider } from "@abstract-foundation/agw-react";
-import { useState } from 'react';
-import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';
 
 const config = {
   testnet: true, // Required
@@ -9,29 +7,13 @@ const config = {
 };
 
 function App() {
-  const [account, setAccount] = useState<any>(null)
-
-  const initializeWallet = async () => {
-    try {
-      const privateKey = generatePrivateKey()
-      console.log('Private key:', privateKey)
-      const newAccount = privateKeyToAccount(privateKey)
-      setAccount(newAccount)
-    } catch (error) {
-      console.error('Error initializing wallet:', error)
-    }
-  }
-
+  // login function to prompt the user to sign in with AGW.
   return (
     <div className="App">
       <h1>AGW React Demo</h1>
-      {!account ? (
-        <button onClick={initializeWallet}>Initialize Wallet</button>
-      ) : (
-        <AbstractWalletProvider config={config}>
-      {/* Your application components */}
-    </AbstractWalletProvider>
-      )}
+      <AbstractWalletProvider config={config}>
+        {/* Your application components */}
+      </AbstractWalletProvider>
     </div>
   )
 }
