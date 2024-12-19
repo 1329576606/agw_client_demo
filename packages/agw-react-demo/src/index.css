@@ -69,16 +69,20 @@ button:hover {
 .account-info {
   display: flex;
   align-items: center;
+  gap: 1rem;
   padding: 0.5rem 1rem;
   background-color: #2D2D2D;
   border-radius: 12px;
-  cursor: pointer;
   position: relative;
-  transition: all 0.2s ease;
 }
 
-.account-info:hover {
-  background-color: #363636;
+.balance {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.875rem;
+  color: #10B981;
+  font-weight: 500;
+  padding-right: 1rem;
+  border-right: 1px solid #404040;
 }
 
 .address {
@@ -86,6 +90,12 @@ button:hover {
   font-size: 0.875rem;
   color: #E2E8F0;
   position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.address:hover {
+  color: #646cff;
 }
 
 .copy-tooltip {
@@ -102,6 +112,7 @@ button:hover {
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s ease;
+  z-index: 10;
 }
 
 .copy-tooltip::before {
@@ -115,7 +126,7 @@ button:hover {
   background-color: #1A1A1A;
 }
 
-.account-info:hover .copy-tooltip {
+.address:hover .copy-tooltip {
   opacity: 1;
   visibility: visible;
 }
