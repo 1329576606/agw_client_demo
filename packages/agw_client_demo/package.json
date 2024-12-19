@@ -1,0 +1,19 @@
+{
+  "name": "@workspace/agw-client-demo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@abstract-foundation/agw-client": "^0.1.0",
+    "dotenv": "^16.4.7",
+    "viem": "^2.21.55"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}

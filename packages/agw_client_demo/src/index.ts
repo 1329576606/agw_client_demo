@@ -15,7 +15,10 @@ async function main() {
         signer: account, // This is the AGW "owner" (the initial approved signer) of the smart contract wallet.
     });
 
-    await agwClient
+    console.log(`EOA address: ${account.address}`);
+
+    console.log(`AGW address: ${agwClient.account.address}`);
+
 }
 
 main().catch(console.error);

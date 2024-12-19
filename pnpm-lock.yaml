@@ -6,7 +6,9 @@ settings:
 
 importers:
 
-  .:
+  .: {}
+
+  packages/agw_client_demo:
     dependencies:
       '@abstract-foundation/agw-client':
         specifier: ^0.1.0
