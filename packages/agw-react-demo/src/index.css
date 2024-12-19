@@ -409,3 +409,88 @@ button:hover {
 .input-group input::placeholder {
   color: #4A5568;
 }
+
+.required-fields {
+  margin-bottom: 1.5rem;
+}
+
+.required-fields label::after {
+  content: ' *';
+  color: #EF4444;
+}
+
+.advanced-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: #2D2D2D;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.advanced-toggle:hover {
+  background-color: #363636;
+}
+
+.toggle-icon {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.toggle-icon.open {
+  transform: rotate(180deg);
+}
+
+.advanced-fields {
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gas-settings {
+  background-color: #2D2D2D;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.gas-estimate {
+  background-color: #2D2D2D;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.gas-estimate-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.gas-estimate-item:not(:last-child) {
+  border-bottom: 1px solid #404040;
+}
+
+.gas-estimate-item > span:first-child {
+  color: #94A3B8;
+  font-size: 0.875rem;
+}
+
+.gas-estimate-item > span:last-child {
+  color: #E2E8F0;
+  font-weight: 500;
+}
