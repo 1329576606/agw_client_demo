@@ -1,23 +1,22 @@
 import { useLoginWithAbstract } from '@abstract-foundation/agw-react';
-import { useAccount } from 'wagmi';
+import { useAccount } from "wagmi";
 
 export function Login() {
   const { status } = useAccount();
   const { login, logout } = useLoginWithAbstract();
-  const isConnected = status === 'connected';
+  const isConnected = status === "connected";
 
   return (
-    <div className="login-container">
-      {!isConnected && (
+    <>
+      {!isConnected ? (
         <button onClick={login} className="login-button">
-          Connect Wallet
+          Connect
         </button>
-      )}
-      {isConnected && (
-        <button onClick={logout} className="disconnect-button">
+      ) : (
+        <button onClick={logout} className="login-button">
           Disconnect
         </button>
       )}
-    </div>
+    </>
   );
 }

@@ -136,3 +136,276 @@ button:hover {
   visibility: visible;
   bottom: -30px;
 }
+
+.app-main {
+  min-height: calc(100vh - 80px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.floating-send {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.floating-send .send-button {
+  background: linear-gradient(45deg, #646cff, #8B5CF6);
+  color: white;
+  font-size: 1rem;
+  padding: 0.75rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(100, 108, 255, 0.2);
+}
+
+.floating-send .send-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(100, 108, 255, 0.3);
+}
+
+.send-transaction {
+  background-color: #2D2D2D;
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.send-transaction h2 {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+  color: #E2E8F0;
+}
+
+.send-transaction h3 {
+  margin: 1.5rem 0 1rem;
+  font-size: 1rem;
+  color: #E2E8F0;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #94A3B8;
+  font-size: 0.875rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #404040;
+  background-color: #1A1A1A;
+  color: #E2E8F0;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #646cff;
+  box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.2);
+}
+
+.input-group input::placeholder {
+  color: #4A5568;
+}
+
+.gas-settings {
+  background-color: #1A1A1A;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.gas-info {
+  padding: 0.75rem;
+  background-color: #2D2D2D;
+  border-radius: 8px;
+  color: #94A3B8;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.send-button {
+  width: 100%;
+  padding: 0.875rem;
+  background: linear-gradient(45deg, #646cff, #8B5CF6);
+  color: white;
+  font-weight: 600;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background-color: #1A1A1A;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalEnter 0.3s ease;
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #2D2D2D;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #E2E8F0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: #2D2D2D;
+  color: #E2E8F0;
+}
+
+.modal-content {
+  padding: 1.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cancel-button {
+  flex: 1;
+  background-color: #2D2D2D;
+  color: #E2E8F0;
+}
+
+.send-button {
+  flex: 2;
+  background: linear-gradient(45deg, #646cff, #8B5CF6);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-right .send-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  flex: initial;
+}
+
+.send-transaction {
+  background: none;
+  padding: 0;
+}
+
+.gas-settings {
+  background-color: #2D2D2D;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.gas-info {
+  padding: 0.75rem;
+  background-color: #1A1A1A;
+  border-radius: 8px;
+  color: #94A3B8;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #94A3B8;
+  font-size: 0.875rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #2D2D2D;
+  background-color: #2D2D2D;
+  color: #E2E8F0;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #646cff;
+  box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.2);
+}
+
+.input-group input::placeholder {
+  color: #4A5568;
+}
