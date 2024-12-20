@@ -1,9 +1,10 @@
 import { AbstractWalletProvider } from "@abstract-foundation/agw-react";
 import { useState } from "react";
 import { useAccount } from 'wagmi';
-import { Login } from "./components/Login";
 import { Account } from "./components/Account";
+import { Login } from "./components/Login";
 import { SendTransaction } from "./components/SendTransaction";
+import { Demos } from "./components/Demos";
 
 const config = {
   testnet: true,
@@ -34,6 +35,7 @@ function AppContent() {
             </button>
           </div>
         )}
+      <Demos />
       </main>
       <SendTransaction
         isOpen={isTransactionModalOpen}

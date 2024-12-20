@@ -10,6 +10,9 @@ importers:
 
   packages/agw-react-demo:
     dependencies:
+      '@abstract-foundation/agw-client':
+        specifier: ^0.1.0
+        version: 0.1.0(abitype@1.0.7(typescript@5.7.2)(zod@3.24.1))(typescript@5.7.2)(viem@2.21.55(bufferutil@4.0.8)(typescript@5.7.2)(utf-8-validate@5.0.10)(zod@3.24.1))
       '@abstract-foundation/agw-react':
         specifier: ^0.1.0
         version: 0.1.0(2prdetfgi46dt7fqz3avwkhlke)

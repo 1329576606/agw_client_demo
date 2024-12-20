@@ -4,8 +4,7 @@ import { useState } from 'react';
 export function Account() {
   const { address, status } = useAccount();
   const { data: balance } = useBalance({
-    address,
-    watch: true,
+    address:address,
   });
   const [copied, setCopied] = useState(false);
   const isConnected = status === 'connected';

@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { formatEther, formatGwei, Hex, parseEther, parseGwei } from "viem";
+import { useAccount, useEstimateFeesPerGas, useEstimateGas, useSendTransaction } from "wagmi";
 import { Modal } from "./Modal";
-import { parseEther, parseGwei, formatEther, formatGwei } from "viem";
-import { useAccount, useEstimateGas, useFeeData, useSendTransaction } from "wagmi";
 
 interface SendTransactionProps {
   isOpen: boolean;
@@ -16,16 +16,13 @@ export function SendTransaction({ isOpen, onClose }: SendTransactionProps) {
   const [gasPrice, setGasPrice] = useState("");
   const [data, setData] = useState("");
 
-  const { address } = useAccount();
   const { data: estimatedGas } = useEstimateGas({
-    to,
+    to: to as Hex,
     value: amount ? parseEther(amount) : undefined,
-    data: data || undefined,
+    data: data as Hex || undefined,
   });
 
-  const { data: feeData } = useFeeData({
-    watch: true,
-  });
+  const { data: feeData } = useEstimateFeesPerGas();
 
   // 计算预估费用
   const calculateEstimatedFee = () => {
@@ -43,11 +40,11 @@ export function SendTransaction({ isOpen, onClose }: SendTransactionProps) {
     if (!to || !amount) return;
 
     sendTransaction({
-      to,
+      to: to as Hex,
       value: parseEther(amount),
       gas: gasLimit ? BigInt(gasLimit) : undefined,
       maxFeePerGas: gasPrice ? parseGwei(gasPrice) : undefined,
-      data: data || undefined,
+      data: data as Hex || undefined,
     });
 
     onClose();
