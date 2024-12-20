@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { formatEther, formatGwei, Hex, parseEther, parseGwei } from "viem";
-import { useAccount, useEstimateFeesPerGas, useEstimateGas, useSendTransaction } from "wagmi";
+import { useEstimateFeesPerGas, useEstimateGas, useSendTransaction } from "wagmi";
 import { Modal } from "./Modal";
 
 interface SendTransactionProps {

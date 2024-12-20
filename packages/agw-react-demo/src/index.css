@@ -49,6 +49,9 @@ button {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  background: linear-gradient(45deg, #646cff, #8B5CF6);
+  color: white;
+  margin-bottom: 5px;
 }
 
 .login-button {
