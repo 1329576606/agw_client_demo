@@ -191,6 +191,8 @@ button:hover {
 
 .input-group {
   margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .input-group label {
@@ -204,12 +206,12 @@ button:hover {
   width: 100%;
   padding: 0.75rem;
   border-radius: 8px;
-  border: 1px solid #404040;
-  background-color: #1A1A1A;
+  border: 1px solid #2D2D2D;
+  background-color: #2D2D2D;
   color: #E2E8F0;
   font-family: 'Roboto Mono', monospace;
   font-size: 0.875rem;
-  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .input-group input:focus {
@@ -382,6 +384,8 @@ button:hover {
 
 .input-group {
   margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .input-group label {
@@ -400,7 +404,7 @@ button:hover {
   color: #E2E8F0;
   font-family: 'Roboto Mono', monospace;
   font-size: 0.875rem;
-  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .input-group input:focus {

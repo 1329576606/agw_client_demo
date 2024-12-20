@@ -1,16 +1,15 @@
 import {useAbstractClient} from "@abstract-foundation/agw-react";
 import {useAccount} from "wagmi";
 import {AbstractClient} from "@abstract-foundation/agw-client";
-import {createPublicClient, encodeFunctionData, Hex} from "viem";
-import {http} from "viem";
+import {createPublicClient, encodeFunctionData, Hex, http} from "viem";
 import {abstractTestnet} from "viem/chains";
 
 export function Demos() {
     const {status} = useAccount();
     const client: AbstractClient = useAbstractClient().data!;
     const provider = createPublicClient({
-        chain:abstractTestnet,
-        transport:http()
+        chain: abstractTestnet,
+        transport: http()
     })
     const isConnected = status === "connected";
 
@@ -26,19 +25,22 @@ export function Demos() {
     }
 
     async function sendBatchTx() {
+        const calls: Array<{ to: Hex, allowFailure: boolean, value: bigint, callData: Hex }> = [
+            {
+                to: '0xE1EED60a089BBe1495e45a7B14D8aA7f91C5557d',
+                allowFailure: false,
+                value: 1n,
+                callData: "0x"
+            }, {
+                to: '0x490Dd3cCc7ff94823d4F10bb6d97c7802957e6bf',
+                allowFailure: false,
+                value: 2n,
+                callData: "0x"
+            }
+        ]
+        // const hash = await client.sendTransactionBatch({calls:calls});
 
-        const calls: Array<{ target: Hex, allowFailure: boolean, value: bigint, callData: Hex }> = [{
-            target: '0xE1EED60a089BBe1495e45a7B14D8aA7f91C5557d',
-            allowFailure: false,
-            value: 1n,
-            callData: "0x"
-        }, {
-            target: '0x490Dd3cCc7ff94823d4F10bb6d97c7802957e6bf',
-            allowFailure: false,
-            value: 2n,
-            callData: "0x"
-        }];
-        // await client.sendTransactionBatch({calls:calls})
+
         const batchCallData = encodeFunctionData({
             abi: [
                 {
@@ -59,7 +61,12 @@ export function Demos() {
                     outputs: [],
                 },
             ],
-            args: [calls],
+            args: [calls.map(call => ({
+                target: call.to,
+                allowFailure: call.allowFailure,
+                value: call.value,
+                callData: call.callData
+            }))],
         });
         const tx = await client.prepareAbstractTransactionRequest({
             to: client.account.address,
